@@ -1,0 +1,3 @@
+[submodule "deps/templates-parser"]
+	path = deps/templates-parser
+	url = https://github.com/AdaCore/templates-parser

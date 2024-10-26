@@ -1,0 +1,23 @@
+name = "templates_parser_tools"
+description = ""
+version = "24.0.0"
+
+authors = ["Alejandro R. Mosteo"]
+maintainers = ["Alejandro R. Mosteo <amosteo@unizar.es>"]
+maintainers-logins = ["mosteo"]
+licenses = "MIT OR Apache-2.0 WITH LLVM-exception"
+website = ""
+tags = []
+
+[[actions]]
+type = "post-fetch"
+command = ["gprbuild", "-Pdeps/templates-parser/tools/tools.gpr"]
+# This builds the tools without introducing the tools.gpr into the project
+# closure, which could be conflicting due to the common project name.
+
+[environment]
+PATH.append = "${CRATE_ROOT}/deps/templates-parser/.build/bin"
+
+[[depends-on]]
+templates_parser = "^24.0.0"
+# The deps/templates_parser submodule MUST match this version

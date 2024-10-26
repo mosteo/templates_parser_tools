@@ -1,0 +1,26 @@
+name = "test_gen"
+description = "Test generation of a template file"
+version = "0.1.0-dev"
+
+authors = ["Alejandro R. Mosteo"]
+maintainers = ["Alejandro R. Mosteo <amosteo@unizar.es>"]
+maintainers-logins = ["mosteo"]
+licenses = "MIT OR Apache-2.0 WITH LLVM-exception"
+website = ""
+tags = []
+
+executables = ["test_gen"]
+
+[[depends-on]]
+templates_parser_tools = "*"
+
+[[pins]]
+templates_parser_tools = { path='..' }
+
+[[actions]]
+type = "post-build"
+command = ["templates2ada", "-r",
+           "-d", "templates/in",
+           "-e", "md",
+           "-o", "templates/out.ada",
+           "-t", "templates/templates.tads", "-v"]
