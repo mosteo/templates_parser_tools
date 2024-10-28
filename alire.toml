@@ -15,6 +15,11 @@ command = ["gprbuild", "-Pdeps/templates-parser/tools/tools.gpr"]
 # This builds the tools without introducing the tools.gpr into the project
 # closure, which could be conflicting due to the common project name.
 
+[[actions]]
+type = "test"
+command = ["alr", "build"]
+directory = "test_gen"
+
 [environment]
 PATH.append = "${CRATE_ROOT}/deps/templates-parser/.build/bin"
 
